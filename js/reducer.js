@@ -1,26 +1,27 @@
-let state = {count: 0}
+let state;
 
-function changeState(state, action){
+function changeState(state={count: 0}, action) {
   switch (action.type) {
-    case 'INCREASE_COUNT':
-      return {count: state.count + 1}
+    case "INCREASE_COUNT":
+      return { count: state.count + 1 };
     default:
       return state;
   }
 }
 
-function dispatch(action){
-  state = changeState(state, action)
-  render()
+function dispatch(action) {
+  state = changeState(state, action);
+  render();
 }
 
-function render(){
-  document.body.textContent = state.count
+function render() {
+  document.body.textContent = state.count;
 }
+let action = { type: "INCREASE_COUNT" };
 
-let action = {type: 'INCREASE_COUNT'}
+dispatch({ type: "@@INIT" });
 
-dispatch(action)
-dispatch(action)
-dispatch(action)
-dispatch(action)
+// dispatch(action)
+// dispatch(action)
+// dispatch(action)
+// dispatch(action)
